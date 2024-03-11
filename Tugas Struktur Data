@@ -1,1 +1,22 @@
-f
+class MenuItem:
+    def __init__(self, NamaMenu, Harga):
+        self.NamaMenu = NamaMenu
+        self.Harga = Harga
+        self.next = None
+
+# Deklarasi var pointer linked list -> sifatnya global
+head = None
+tail = None
+current = None
+
+# Fungsi untuk menambahkan menu makanan
+def addMenuItem(NamaMenu, Harga):
+    global head, tail, current
+    newItem = MenuItem(NamaMenu, Harga)
+    if head is None:
+        head = newItem
+        tail = newItem
+        current = newItem
+    else:
+        tail.next = newItem
+        tail = newItem
