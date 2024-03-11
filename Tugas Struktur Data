@@ -51,8 +51,8 @@ def main():
         print(f"{key}. {value[0]} -> Rp{value[1]}")
 #Line 25-51 Andhika Abdilah Prasetyo 046 
 
-    # Ini adalah loop utama program yang berjalan selama pengguna belum memilih untuk selesai (0).
-  while True:
+    # Ini adalah loop utama program yang berjalan selama penggguna belum memilih untuk selesai (0).
+    while True:
         try:
             choice = int(input("Silakan pilih menu (1-5) atau 0 untuk selesai: "))
             if choice == 0:
