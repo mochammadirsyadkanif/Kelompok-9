@@ -1,22 +1,52 @@
-class MenuItem:
-    def __init__(self, NamaMenu, Harga):
-        self.NamaMenu = NamaMenu
-        self.Harga = Harga
-        self.next = None
+# Definisikan kelas Node untuk merepresentasikan setiap simpul dalam linked list
+class Node:
+    def __init__(self, data=None, harga=None):
+        self.data = data  # Data menyimpan nama menu
+        self.harga = harga  # Harga menyimpan harga menu
+        self.next = None  # Inisialisasi pointer ke simpul selanjutnya
 
-# Deklarasi var pointer linked list -> sifatnya global
-head = None
-tail = None
-current = None
+# Definisikan kelas LinkedList untuk merepresentasikan linked list itu sendiri
+class LinkedList:
+    def __init__(self):
+        self.head = None  # Inisialisasi kepala linked list sebagai None
 
-# Fungsi untuk menambahkan menu makanan
-def addMenuItem(NamaMenu, Harga):
-    global head, tail, current
-    newItem = MenuItem(NamaMenu, Harga)
-    if head is None:
-        head = newItem
-        tail = newItem
-        current = newItem
-    else:
-        tail.next = newItem
-        tail = newItem
+    # Metode untuk menambahkan simpul baru ke linked list
+    def insert(self, data, harga):
+        node_baru = Node(data, harga)
+        if not self.head:  # Jika linked list masih kosong, simpul baru menjadi kepala
+            self.head = node_baru
+        else:
+            current = self.head
+            while current.next:
+                current = current.next
+            current.next = node_baru  # Tambahkan simpul baru di ujung linked list
+#Line Mochammad Irsyad Kanif 
+
+    # Metode untuk menampilkan isi linked list
+    def display(self):
+        current = self.head
+        while current:
+            print(f"{current.data} (Rp{current.harga})")  # Tampilkan nama menu dan harganya
+            current = current.next
+
+# Fungsi utama program
+def main():
+    # Menu dan harga ditentukan dalam kamus
+    menu = {
+        1: ("Miexue Ice Cream", 5000),
+        2: ("Boba Shake", 16000),
+        3: ("Mi Sundae", 14000),
+        4: ("Mi Ganas", 11000),
+        5: ("Creamy Mango Boba", 22000)
+    }
+
+    # Inisialisasi linked list untuk menyimpan pesanan dan total harga
+    daftar_pesanan = LinkedList()
+    total_harga = 0
+
+    # Tampilkan menu kepada pengguna
+    print("Selamat datang di D4 MI Miexue!")
+    print("Berikut adalah menu kami:")
+    for key, value in menu.items():
+        print(f"{key}. {value[0]} -> Rp{value[1]}")
+#Line Andhika Abdilah Prasetyo 
