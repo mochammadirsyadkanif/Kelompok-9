@@ -20,7 +20,7 @@ class LinkedList:
             while current.next:
                 current = current.next
             current.next = node_baru  # Tambahkan simpul baru di ujung linked list
-#Line Mochammad Irsyad Kanif 
+#Line 1-22 Mochammad Irsyad Kanif 070
 
     # Metode untuk menampilkan isi linked list
     def display(self):
@@ -49,4 +49,4 @@ def main():
     print("Berikut adalah menu kami:")
     for key, value in menu.items():
         print(f"{key}. {value[0]} -> Rp{value[1]}")
-#Line Andhika Abdilah Prasetyo 
+#Line 25-51 Andhika Abdilah Prasetyo 046 
