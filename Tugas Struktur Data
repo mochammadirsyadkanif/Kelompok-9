@@ -50,3 +50,32 @@ def main():
     for key, value in menu.items():
         print(f"{key}. {value[0]} -> Rp{value[1]}")
 #Line 25-51 Andhika Abdilah Prasetyo 046 
+
+    # Ini adalah loop utama program yang berjalan selama pengguna belum memilih untuk selesai (0).
+  while True:
+        try:
+            choice = int(input("Silakan pilih menu (1-5) atau 0 untuk selesai: "))
+            if choice == 0:
+                break
+            elif choice not in menu:
+                print("Menu tidak valid. Silakan pilih lagi.")
+                continue
+            else:
+                item = menu[choice][0]
+                harga = menu[choice][1]
+                order_list.insert(item, harga)
+                total_price += harga
+                print(f"{item} telah ditambahkan ke keranjang.")
+        except ValueError:
+            print("Masukan tidak valid. Silakan coba lagi.")
+
+    # Metode display() dari objek daftar_pesanan akan dipanggil untuk menampilkan daftar pesanan pengguna.
+    print("\nPesanan Anda:")
+    order_list.display()
+    print(f"Total harga yang harus Anda bayar: Rp{total_price}")
+    print("Terima kasih atas pesanan Anda! Silakan tunggu sebentar.")
+
+    # Blok ini akan mengeksekusi fungsi main() saat skrip ini dijalankan secara langsung. Ini memastikan bahwa program akan berjalan sesuai yang diharapkan saat dijalankan sebagai program utama.
+if __name__ == "__main__":
+    main()
+#Line 53-80 Mochammad Nanda Rifqi Alfaris 068
