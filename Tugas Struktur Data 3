@@ -57,3 +57,76 @@
                     total_distance = float('inf')
                     break  # Break if path is invalid
 # Andhika Abdilah Prasetyo Line 56 - 111
+
+            # Check if current permutation is shorter than the current shortest path
+            if total_distance < shortest_distance:
+                shortest_distance = total_distance
+                shortest_path = path
+
+        return shortest_path, shortest_distance
+
+        
+
+
+#Menambahkan vertex atau kota
+petaJatim = WeightedGraph()
+petaJatim.tambahkanKota("Surabaya")
+petaJatim.tambahkanKota("Sidoarjo")
+petaJatim.tambahkanKota("Tulungagung")
+petaJatim.tambahkanKota("Probolinggo")
+petaJatim.tambahkanKota("Kediri")
+petaJatim.tambahkanKota("Lamongan")
+petaJatim.tambahkanKota("Malang")
+petaJatim.tambahkanKota("Bojonegoro")
+petaJatim.tambahkanKota("Pasuruan")
+petaJatim.tambahkanKota("Ngawi")
+petaJatim.tambahkanKota("Blora")
+petaJatim.tambahkanKota("Tuban")
+petaJatim.tambahkanKota("Ponorogo")
+petaJatim.tambahkanKota("Lumajang")
+petaJatim.tambahkanKota("Jember")
+petaJatim.tambahkanKota("Bondowoso")
+
+#Menghubungkan setiap vertex atau kota menggunakan edge atau jalan
+petaJatim.tambahkanJalan("Surabaya" , "Lamongan", 45)
+petaJatim.tambahkanJalan("Sidoarjo" , "Lamongan", 66)
+petaJatim.tambahkanJalan("Sidoarjo" , "Surabaya", 26)
+petaJatim.tambahkanJalan("Sidoarjo" , "Pasuruan", 45)
+petaJatim.tambahkanJalan("Probolinggo" , "Pasuruan", 46)
+petaJatim.tambahkanJalan("Malang" , "Probolinggo", 113)
+petaJatim.tambahkanJalan("Malang" , "Pasuruan", 75)
+petaJatim.tambahkanJalan("Malang" , "Sidoarjo", 71)
+petaJatim.tambahkanJalan("Malang" , "Lumajang", 155 )
+petaJatim.tambahkanJalan("Lamongan" , "Bojonegoro", 66)
+petaJatim.tambahkanJalan("Lamongan" , "Tuban", 58)
+petaJatim.tambahkanJalan("Tuban" , "Bojonegoro", 43)
+petaJatim.tambahkanJalan("Kediri" , "Sidoarjo", 123)
+petaJatim.tambahkanJalan("Kediri" , "Malang", 193)
+petaJatim.tambahkanJalan("Kediri" , "Lamongan", 137)
+petaJatim.tambahkanJalan("Kediri" , "Bojonegoro", 100)
+petaJatim.tambahkanJalan("Tulungagung" , "Lumajang", 278)
+petaJatim.tambahkanJalan("Tulungagung" , "Kediri", 35)
+petaJatim.tambahkanJalan("Tulungagung" , "Malang", 101)
+petaJatim.tambahkanJalan("Tulungagung" , "Ponorogo", 77)
+petaJatim.tambahkanJalan("Ngawi" , "Ponorogo", 67)
+petaJatim.tambahkanJalan("Ngawi" , "Kediri", 111)
+petaJatim.tambahkanJalan("Ngawi" , "Bojonegoro", 75)
+petaJatim.tambahkanJalan("Ngawi" , "Tuban", 113)
+petaJatim.tambahkanJalan("Ngawi" , "Tulungagung", 142)
+petaJatim.tambahkanJalan("Blora" , "Ngawi", 78)
+petaJatim.tambahkanJalan("Blora" , "Tuban",84 )
+petaJatim.tambahkanJalan("Lumajang" , "Probolinggo", 46)
+petaJatim.tambahkanJalan("Lumajang" , "Jember", 67)
+petaJatim.tambahkanJalan("Jember" , "Probolinggo", 98)
+petaJatim.tambahkanJalan("Probolinggo" , "Bondowoso", 111)
+petaJatim.tambahkanJalan("Bondowoso" , "Jember", 35)
+
+petaJatim.printGraph()
+shortest_distances = petaJatim.dijkstra("Surabaya")
+print("Shortest distances from Surabaya to other cities:")
+for city, distance in shortest_distances.items():
+    print(city, ":", distance)
+shortest_path, shortest_distance = petaJatim.tsp()
+print("Shortest TSP path:", shortest_path)
+print("Shortest TSP distance:", shortest_distance)
+# Mochammad Irsyad Kanif Line 112 - 182
